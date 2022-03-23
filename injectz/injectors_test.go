@@ -11,6 +11,11 @@ import (
 	"github.com/ibrt/golang-inject/injectz/internal/fixtures"
 )
 
+func TestNewNoopInjector(t *testing.T) {
+	ctx := injectz.NewNoopInjector()(context.Background())
+	require.True(t, ctx == context.Background())
+}
+
 func TestNewSingletonInjector(t *testing.T) {
 	type contextKey int
 	const myContextKey contextKey = iota
